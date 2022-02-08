@@ -19,8 +19,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.robbiehey.fp"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
