@@ -1,6 +1,6 @@
 import * as React from "react"
-import { Text, View, TextInput, Button, Alert } from "react-native"
-import { Avatar, ListItem } from "react-native-elements"
+import {Text, View, TextInput, Button, Alert} from "react-native"
+import {Avatar, ListItem} from "react-native-elements"
 
 export function Settings() {
   const [showBox, setShowBox] = React.useState(true)
@@ -28,7 +28,13 @@ export function Settings() {
     <View>
       <ListItem onPress={() => showConfirmDialog()} bottomDivider>
         <ListItem.Content>
-          <ListItem.Title>Delete all users?</ListItem.Title>
+          <ListItem.Title>Give everyone a free day</ListItem.Title>
+          <ListItem.Subtitle>(Click me)</ListItem.Subtitle>
+        </ListItem.Content>
+      </ListItem>
+      <ListItem onPress={() => showConfirmDialog()} bottomDivider>
+        <ListItem.Content>
+          <ListItem.Title>Send all expired the DM </ListItem.Title>
           <ListItem.Subtitle>(Click me)</ListItem.Subtitle>
         </ListItem.Content>
       </ListItem>

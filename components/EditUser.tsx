@@ -1,9 +1,9 @@
 import axios from "axios"
-import { isDuration } from "moment"
+import {isDuration} from "moment"
 import * as React from "react"
-import { Button, Platform, StyleSheet, TextInput } from "react-native"
-import { Input, Overlay } from "react-native-elements"
-import { Text, View } from "../components/Themed"
+import {Button, Platform, StyleSheet, TextInput} from "react-native"
+import {Input, Overlay} from "react-native-elements"
+import {Text, View} from "../components/Themed"
 
 export default function EditUser({
   name,
@@ -20,14 +20,14 @@ export default function EditUser({
     setUserName(e)
   }
   const editData = () => {
-    setName([...name, { person: userName, membershipLength: newTime }])
+    setName([...name, {person: userName, membershipLength: newTime}])
   }
 
   const ClearUser = () => {
     axios
       .delete(`http://localhost:8082/api/users/${selectedData._id}`)
       .catch((err) => {
-        console.log("Failed to delete todo")
+        console.log("Failed to delete user")
         console.log(err.message)
       })
     setName(deleteData)
@@ -37,6 +37,7 @@ export default function EditUser({
     const data = {
       person: userName,
       clock: newTime,
+      dateToExpire: new Date().getTime() + 86400000 * newTime,
     }
     axios
       .put(`http://localhost:8082/api/users/${selectedData._id}`, data)
@@ -45,10 +46,14 @@ export default function EditUser({
       })
     editData()
   }
+
+  var result = new Date()
+  result.setDate(result.getDate() + 1)
+  console.log(selectedData)
   return (
     <View>
       <Overlay isVisible={true} onBackdropPress={() => setOpenModal(true)}>
-        <Text>Edit User </Text>
+        <Text style={{color: "purple"}}>@{selectedData.person} Edit User </Text>
 
         <TextInput
           onChangeText={handleChange}
@@ -57,8 +62,8 @@ export default function EditUser({
           placeholder="@"
           placeholderTextColor="pink"
         />
-        <Text style={{ marginTop: 10 }}>{newTime} Days Remaining! </Text>
-        <View style={{ flexDirection: "row" }}>
+        <Text style={{marginTop: 10}}>{newTime} Days Added </Text>
+        <View style={{flexDirection: "row"}}>
           <Button
             title="Add Day"
             onPress={() => setNewTime(newTime + 1)}
@@ -68,7 +73,7 @@ export default function EditUser({
             onPress={() => setNewTime(newTime + 7)}
           ></Button>
         </View>
-        <View style={{ flexDirection: "row" }}>
+        <View style={{flexDirection: "row"}}>
           <Button
             title="Add Month"
             onPress={() => setNewTime(newTime + 30)}
