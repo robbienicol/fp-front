@@ -4,7 +4,6 @@ import {Text, Tab, TabView} from "react-native-elements"
 import {Users} from "../components/Users"
 import {View} from "../components/Themed"
 import {Settings} from "../components/Settings"
-import {Avatar, ListItem} from "react-native-elements"
 import {Expired} from "../components/Expired"
 
 export default function AdminHome({
@@ -15,13 +14,12 @@ export default function AdminHome({
   expireFilter,
 }: {
   name: any
-  setName: any
+  setName: React.SetStateAction<any>
   sendPushNotification: any
   expoPushToken: any
   expireFilter: any
 }) {
-  const [index, setIndex] = React.useState(0)
-
+  const [index, setIndex] = React.useState<number>(0)
   return (
     <View style={styles.container}>
       <Tab
@@ -33,11 +31,11 @@ export default function AdminHome({
         <Tab.Item title="broke boys" />
       </Tab>
       <TabView value={index - 1} onChange={setIndex}>
-        <TabView.Item style={{backgroundColor: "white", width: "100%"}}>
+        <TabView.Item style={styles.container}>
           <Settings />
         </TabView.Item>
 
-        <TabView.Item style={{backgroundColor: "white", width: "100%"}}>
+        <TabView.Item style={styles.container}>
           <Users
             expoPushToken={expoPushToken}
             sendPushNotification={sendPushNotification}
@@ -47,7 +45,7 @@ export default function AdminHome({
             openModal={false}
           />
         </TabView.Item>
-        <TabView.Item style={{backgroundColor: "white", width: "100%"}}>
+        <TabView.Item style={styles.container}>
           {expireFilter.length > 0 ? (
             <Expired
               setName={setName}
@@ -66,6 +64,9 @@ export default function AdminHome({
 }
 
 const styles = StyleSheet.create({
+  tab: {
+    backgroundColor: "white", width: "100%"
+  },
   container: {
     flex: 1,
     alignItems: "center",

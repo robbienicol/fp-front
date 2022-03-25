@@ -49,7 +49,6 @@ export default function EditUser({
 
   var result = new Date()
   result.setDate(result.getDate() + 1)
-  console.log(selectedData)
   return (
     <View>
       <Overlay isVisible={true} onBackdropPress={() => setOpenModal(true)}>
@@ -97,5 +96,4 @@ const styles = StyleSheet.create({
     marginTop: 10,
     color: "black",
   },
-  winner: {},
 })

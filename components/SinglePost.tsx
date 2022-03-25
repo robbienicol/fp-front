@@ -1,9 +1,9 @@
 import * as React from "react"
-import { Text, View, TextInput, Button, Alert } from "react-native"
+import { View, } from "react-native"
 import { Avatar, ListItem } from "react-native-elements"
 
 export function SinglePost() {
-  const l = {
+  const fakeUser = {
     name: "juan",
     subtitle: "take this bet !",
   }
@@ -16,8 +16,8 @@ export function SinglePost() {
           }}
         />
         <ListItem.Content>
-          <ListItem.Title>{l.name}</ListItem.Title>
-          <ListItem.Subtitle>{l.subtitle}</ListItem.Subtitle>
+          <ListItem.Title>{fakeUser.name}</ListItem.Title>
+          <ListItem.Subtitle>{fakeUser.subtitle}</ListItem.Subtitle>
         </ListItem.Content>
       </ListItem>
     </View>

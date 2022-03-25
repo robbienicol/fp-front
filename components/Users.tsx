@@ -16,7 +16,7 @@ export function Users({
   sendPushNotification: any
   expoPushToken: any
 }) {
-  const [openModal, setOpenModal] = React.useState(true)
+  const [openModal, setOpenModal] = React.useState<boolean>(true)
   const [selectedData, setSelectedData] = React.useState()
   var millisecondsPerDay = 24 * 60 * 60 * 1000
 

@@ -5,7 +5,7 @@ import moment from "moment"
 import EditUser from "./EditUser"
 
 export function Expired({name, setName, expireFilter}: any) {
-  const [openModal, setOpenModal] = React.useState(true)
+  const [openModal, setOpenModal] = React.useState<boolean>(true)
   const [selectedData, setSelectedData] = React.useState()
   const OpenEdit = (e: any) => {
     setOpenModal(false)

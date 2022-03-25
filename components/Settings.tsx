@@ -1,6 +1,6 @@
 import * as React from "react"
-import {Text, View, TextInput, Button, Alert} from "react-native"
-import {Avatar, ListItem} from "react-native-elements"
+import { View, Alert} from "react-native"
+import { ListItem} from "react-native-elements"
 
 export function Settings() {
   const [showBox, setShowBox] = React.useState(true)

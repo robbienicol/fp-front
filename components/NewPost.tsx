@@ -1,9 +1,7 @@
-import { StatusBar } from "expo-status-bar"
 import * as React from "react"
-import { Button, Platform, StyleSheet, TextInput } from "react-native"
-import { Input, Overlay } from "react-native-elements"
+import { Button, StyleSheet, TextInput } from "react-native"
+import {  Overlay } from "react-native-elements"
 
-import EditScreenInfo from "../components/EditScreenInfo"
 import { Text, View } from "../components/Themed"
 
 export default function NewPost({ setPost }: any) {
